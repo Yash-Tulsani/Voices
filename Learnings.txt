@@ -1,0 +1,29 @@
+Terms to use in resume- Microservices,MVC,WebRtc,SocketIO,Otp and email Authentication
+1) Otp-
+Method a) Traditional Way
+send Otp to server, server will store OTP corresponding to the number, and sends the OTP to the phone, and when user enter the otp, server verifies the Otp by reading from the Database.
+But this method requires accessing DB multiple times, so dont use this method.
+
+Method b) Better Way
+User enter the phone number and sends to the server, server generates the OTP and send the hash of it to the client, and sends the OTP to the phone, so when the user enter the OTP, the users OTP and the hash is send back to user and the server verifies it.
+
+
+
+2) Protected Routes using react-router-dom
+In the latest version of react-router-dom, Routes component only takes Route as a child, so we will pass Protected
+Route component as an element in the Route component, this protected route will have some logic like authentication for eg, if a user is logged in then only he can access the child element of Route else navigate the user to login route
+<Routes>
+ <Route element="<ProtectedRoute/>">
+  <Rooms/>
+ <Route/>
+<Routes/>
+
+export default function ProtectedRoute(){
+	const auth=true; // in Original app this should be in Global state(using context api or redux)
+	
+	return(
+	 auth?<Outlet/>:<Navigate to='/login'>
+	)
+} 
+
+3) JWT Tokens->

@@ -1,0 +1,21 @@
+.countryContainer{
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: aqua; */
+    gap: 0.5vmax;
+}
+.countryName{
+    font-size: 1vmax;
+    font-weight: 600;
+}
+.countryCode{
+    font-size: 1vmax;
+}
+
+.flag{
+    width: 1vmax;
+    height: 0.8vmax;
+}

@@ -1,0 +1,51 @@
+.step{
+    width: 35vmax !important;
+    height: 28vmax !important;
+    background-color: #08083b4d;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 10px #dadadabe;
+    border-radius: 1.4vmax;
+    display: flex;
+    flex-direction: column;
+    justify-content:end;
+    gap: 20%;
+    align-items: center;
+    position: relative;
+    padding-bottom: 6%;
+  }
+  
+  .stepHeadContainer{
+    display: flex;
+    width: 100%;
+    height: fit-content;
+    justify-content: center;
+    /* background-color: #07F1DB; */
+    align-items: center;
+    gap: 5%;
+    position: absolute;
+    top:8%;
+  }
+  
+  .stepImg{
+    width: 3.2vmax;
+    height: 3.2vmax;
+    object-fit: contain;
+    /* background-color: #ffffff; */
+    /* color: whitesmoke; */
+  }
+  
+  .stepHeadText{
+    font-size: 1.7vmax;
+    font-family:'Fredoka One', cursive !important;
+    color: whitesmoke;
+  }
+
+  .termsAndConditions{
+    width: 100%;
+    text-align: justify;
+    padding: 0 10%;
+    font-size: 1.1vmax;
+    color: rgba(255, 255, 255, 0.562);
+    position: absolute;
+    bottom: 5%;
+  }

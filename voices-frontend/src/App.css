@@ -1,0 +1,164 @@
+*{
+  margin:0;
+  padding: 0;
+  box-sizing: border-box !important;
+  z-index: 1;
+  position: relative;
+  /* color: aliceblue; */
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+:root{
+  --secondary-dark:#141299;
+  --primary-dark: #040430;
+  --primary-light: #AE8FFF ;
+  --secondary-light: #7FFFF5;
+  --ternary-light: #07F1DB;
+}
+
+li{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+}
+
+body{
+  background-color: #040430;
+  display: flex;
+  flex-direction: column;
+}
+
+.css-1hv8oq8-MuiStepLabel-label.MuiStepLabel-alternativeLabel{
+  color: whitesmoke;
+  font-size: 1.2vmax !important;
+  opacity: 0.8 !important;
+  font-family:'Fredoka One', cursive !important;
+}
+
+.css-1hv8oq8-MuiStepLabel-label.Mui-completed{
+  color: var(--primary-light) !important;
+  opacity: 0.8;
+}
+
+.css-1hv8oq8-MuiStepLabel-label.Mui-active{
+  color: whitesmoke !important;
+  opacity: 1 !important;
+  text-shadow: 0 0 10px #1c86ff;
+}
+
+.css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root circle{
+  color: var(--primary-light);
+  font-size: 2vmax;
+  
+}
+
+.css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root{
+  background-color:  var(--primary-light) ;
+  color: #040430 !important;
+  font-size: 4vmax !important;
+  width: 2.5vmax !important;
+  height: 2.5vmax !important;
+  border-radius: 50%!important;
+  font-weight: 700;
+  border: 2px solid var(--primary-light);
+}
+
+.css-117w1su-MuiStepIcon-text{
+  fill: #040430 !important;
+}
+
+.css-1x97c6v{
+ 
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 2vmax !important;
+  min-height: 75vh;
+  height: fit-content;
+  align-items: center;
+}
+
+.css-10mg1vw-MuiStepper-root{
+  width: 100%;
+}
+
+.css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root{
+  height: 100%;
+  font-size: 2vmax;
+}
+.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input{
+  height: 100%;
+  font-size: 2vmax;
+}
+
+.css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root{
+  font-size: 2vmax;
+}
+
+
+
+#phoneInputStyle::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 1.4vmax;
+  color: rgb(255, 103, 103);
+  width: fit-content;
+  height: fit-content;
+  min-width: 100vh;
+  min-height: 10vh;
+  background-color: aqua;
+  z-index: 2 !important;
+}
+
+#phoneInputStyle:focus #phoneInputStyle::before{
+  /* transform: translateY(-30%) scale(0.8); */
+  background-color: #141299;
+
+}
+
+.btnContainer{
+  display: flex;
+  width: 100%;
+  height: fit-content;
+  gap: 20%;
+  justify-content: center;
+  align-items: center;
+}
+
+.nextBtn,.backBtn{
+  background-color: #0077FF;
+  width: fit-content;
+  min-width: 30%;
+  height: fit-content;
+  padding: 0.8vmax 1vmax;
+  border-radius: 0.6vmax;
+  border: none;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  /* gap: max(0.5vmax,8%); */
+  cursor: pointer;
+}
+
+.nextBtnText,.backBtnText{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 1.5vmax;
+  color: whitesmoke;
+}
+
+.nextBtnImg,.backBtnImg{
+  width: 2vmax;
+  height: 1.2vmax;
+}
+
+.backBtnImg{
+  transform: rotate(180deg);
+}

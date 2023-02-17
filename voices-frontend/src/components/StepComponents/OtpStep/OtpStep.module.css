@@ -1,0 +1,29 @@
+.otpContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: aqua; */
+    width: 80%;
+    min-height: 3.5vmax;
+    height: fit-content;
+    position: absolute;
+    top: 40%;
+}
+
+.otpInput{
+    width: 100%;
+    min-height: 3.5vmax;
+    height: fit-content;
+    border-radius: 0.8vmax;
+    background-color: rgba(171, 154, 255, 0.2);
+    outline: none;
+    border: none;
+    font-size:1.2vmax;
+    color:whitesmoke;
+    font-size: 1.4vmax;
+    display: flex;
+    align-items: center;
+    padding: 0 5%;
+    position: relative;
+    font-family: monospace;
+}

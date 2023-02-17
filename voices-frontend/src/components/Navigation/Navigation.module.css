@@ -1,0 +1,12 @@
+.navbar{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    padding: 2vmax 3vmax;
+}
+.brandName{
+    color: whitesmoke;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 2vmax;
+}
