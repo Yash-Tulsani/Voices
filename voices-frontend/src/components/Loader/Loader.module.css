@@ -1,0 +1,34 @@
+.loaderContainer{
+    width: 35vmax !important;
+    height: 28vmax !important;
+    background-color: #08083b4d;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 10px #dadadabe;
+    border-radius: 1.4vmax;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    gap: 20%;
+    position: relative;
+    padding-bottom: 6%;
+}
+
+.loaderMessage{
+    font-size: 1.7vmax;
+    font-family:'Fredoka One', cursive !important;
+    color: whitesmoke;
+}
+
+.spinner{
+    animation-name: spin;
+    animation-iteration-count: infinite;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes spin{
+    100%{
+        transform: rotate(360deg);
+    }
+}

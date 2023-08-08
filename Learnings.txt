@@ -27,3 +27,5 @@ export default function ProtectedRoute(){
 } 
 
 3) JWT Tokens->
+
+4) Express has size limit of 10kb for data to be send as the body of the request.(server will respond with 413 payload too large if size limit is exceeded). To fix this we need to specify limit when using express.json() middleware 

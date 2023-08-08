@@ -16,22 +16,32 @@ import UsernameStep from '../StepComponents/UsernameStep/UsernameStep'
 import styles from "./Steps.module.css"
 import StepBox from '../StepComponents/StepBox/StepBox';
 
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
+import {toast} from 'react-toastify'
 
-
-import {sendOtpRequest,verifyOtpRequest} from "../../http/http"
+import {sendOtpRequest,verifyOtpRequest, sendActivateRequest} from "../../http/http"
 
 // Redux Imports
 import {useDispatch, useSelector} from 'react-redux'
 import {setOtp,setAuth} from "../../redux/slices/userAuthSlice"
-
+import { setUsername,setAvatar } from '../../redux/slices/activateSlice';
+import { useNavigate } from 'react-router-dom';
 
 export default function Steps({stepsLabel}) {
   const dispatch=useDispatch();
+  const navigate=useNavigate();
   const {phone,hash}=useSelector((state)=> state.auth.otp);
 
   // Steps Component States
   const [activeStep, setActiveStep] = React.useState(0);
+  const [isMounted,setIsMounted]=useState(false);
+
+  useEffect(()=>{
+    setIsMounted(true);
+    return ()=>{
+      setIsMounted(false);
+    }
+  },[])
 
   // Phone component states
   const [phoneNumber, setPhoneNumber] = useState("")
@@ -43,29 +53,101 @@ export default function Steps({stepsLabel}) {
   // Funtions for Steps
   // Send Otp Step functions
   const sendOtp=async()=>{
-    const res=await sendOtpRequest({phone: `${currentCountryCode} ${phoneNumber}`})
-    dispatch(setOtp({phone: res.data.phone, hash: res.data.hash}))
+    // if(phoneNumber==="" || !phoneNumber){
+    //   toast.error("Phone number cannot be empty.")
+    //   return false;
+    // }
+    const res=await toast.promise(sendOtpRequest({phone: `${currentCountryCode} ${phoneNumber}`}),{
+      pending: "Sending OTP...",
+      success: "OTP sent successfully.",
+      error: "Error sending OTP! Try Again."
+    })
+    
+    dispatch(setOtp({phone: res.data.phone, hash: res.data.hash}));
+    return true;
 
   }
 
   // Verify Otp Step functions
   const verifyOtp=async ()=>{
-      const {data}=await verifyOtpRequest({phone,hash,otp:otpInput});
+      if(otpInput==="" || !otpInput || !phone || !hash){
+        toast.error("OTP cannot be empty.")
+        return false;
+      }
+      const {data}=await toast.promise(verifyOtpRequest({phone,hash,otp:otpInput}),{
+        pending: "Verifying OTP...",
+        success: "OTP verified !",
+        error:{
+          render({data}){
+            return data.response.data.message
+          }
+        }
+      });
       dispatch(setAuth({user:data.user}))
+      return true;
+  }
+
+  // Name Component states
+  const [name,setName]=useState(useSelector(state=>state.activate).username);
+  // Name components functions
+
+    // function to run before moving to next step
+  const setUsernameStep=async ()=>{
+    if(name==undefined || name==="" || !name){
+      toast.error("Name cannot be empty.")
+      return false;
+    }
+    else{
+      dispatch(setUsername(name))
+      return true;
+    }
+  }
+
+  // Activating user after avatar step
+  const {avatar}=useSelector((state)=>state.activate);
+  const activateUser=async ()=>{
+    if(avatar==""){
+      toast.error("Please select a profile picture")
+      return false;
+    }
+    try{
+      const {data}=await sendActivateRequest({name,avatar});
+      if(data.auth){
+        if(isMounted){
+          dispatch(setAuth({user:data.user}))
+        }
+        navigate('/rooms');
+      }
+
+      return false;
+    }catch(err){  
+      console.log("User activation error");
+      toast.error(err.message)
+      return false;
+    }
+
   }
 
   const handleNext = async() => {
+    let canMoveToNextStep=true;
     switch (activeStep) {
       case 0:
-        await sendOtp();
+        canMoveToNextStep=await sendOtp();
         break;
       case 1:
-        await verifyOtp();
+        canMoveToNextStep=await verifyOtp();
         break;
+      case 2:
+        canMoveToNextStep=await setUsernameStep();
+        break;
+      case 3:
+        canMoveToNextStep=await activateUser();
       default:
         break;
     }
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    if(canMoveToNextStep){
+      setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    }
   };
 
   const handleBack = () => {
@@ -81,8 +163,9 @@ export default function Steps({stepsLabel}) {
  
   const stepsComponents={
     0:<PhoneEmailStep phoneNumber={phoneNumber} setPhoneNumber={setPhoneNumber} currentCountryCode={currentCountryCode} setcurrentCountryCode={setcurrentCountryCode}/>,
+    // 0:<AvatarStep/>,
     1:<OtpStep otpInput={otpInput} setOtpInput={setOtpInput}/>,
-    2:<NameStep/>,
+    2:<NameStep name={name} setName={setName}/>,
     3:<AvatarStep/>,
     4:<UsernameStep/>
   }

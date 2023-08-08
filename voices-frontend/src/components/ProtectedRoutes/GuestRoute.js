@@ -3,8 +3,9 @@ import { Navigate, Outlet } from 'react-router-dom'
 import {useSelector} from 'react-redux'
 
 export default function GuestRoute() {
-  const isAuth=useSelector((state)=>state.isAuth)
+  const {user}=useSelector((state)=>state.auth)
+
   return (
-    isAuth ? <Navigate to={"/rooms"}/> : <Outlet/>
+    (user && user.activated) ? <Navigate to={"/rooms"}/> : <Outlet/>
   )
 }

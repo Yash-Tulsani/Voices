@@ -4,9 +4,28 @@
     display: flex;
     align-items: center;
     padding: 2vmax 3vmax;
+    position: relative;
 }
 .brandName{
     color: whitesmoke;
     font-family: 'Press Start 2P', cursive;
     font-size: 2vmax;
+}
+.logoutBtn{
+    height: fit-content;
+    width: fit-content;
+    font-size: 1.8vmax;
+    color: whitesmoke;
+    /* font-family: 'Press Start 2P', cursive; */
+    background: linear-gradient(rgb(0, 162, 255),rgba(0, 162, 255, 0.932),rgba(151, 82, 255, 0.411));
+    padding-left: max(15px,2vmin);
+    padding-right: max(15px,2vmin);
+    padding-top: max(5px,1vmin);
+    padding-bottom: max(5px,1vmin);
+    border-radius: 1vmax;
+    position: absolute;
+    font-weight: 400;
+    right: 5vw;
+    font-family: 'Fredoka One', cursive;
+    cursor: pointer;
 }

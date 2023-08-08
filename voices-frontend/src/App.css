@@ -162,3 +162,7 @@ body{
 .backBtnImg{
   transform: rotate(180deg);
 }
+
+.Toastify{
+  z-index: 1000 !important;
+}

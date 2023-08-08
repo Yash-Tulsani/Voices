@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from './OtpStep.module.css'
 
+
 export default function OtpStep({otpInput,setOtpInput}) {
   function handleOtpChange(e){
     setOtpInput(e.target.value)

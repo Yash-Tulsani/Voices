@@ -3,8 +3,8 @@ import { Navigate,Outlet} from 'react-router-dom'
 import {useSelector} from 'react-redux'
 
 export default function ProtectedRoutes() {
-    const isAuth=useSelector((state)=> state.isAuth)
+    const {user}=useSelector((state)=> state.auth)
   return (
-    isAuth? <Outlet/>:<Navigate to="/" />
+    (user && user.activated)? <Outlet/>:<Navigate to="/" />
   )
 }

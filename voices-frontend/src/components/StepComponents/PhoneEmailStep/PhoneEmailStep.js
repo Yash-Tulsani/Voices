@@ -93,7 +93,7 @@ const phonePlaceholder=`${currentCountryCode} 9898989898`
           </Select>
 
         </div>
-        <input type="tel" id="phoneInputStyle" className={styles.phoneInputStyle} onChange={handlePhoneInputChange} value={phoneNumber}
+        <input type="tel" required id="phoneInputStyle" className={styles.phoneInputStyle} onChange={handlePhoneInputChange} value={phoneNumber}
          pattern="[0-9]{10}" maxLength={10} placeholder={phonePlaceholder}/>
       </div>
  
