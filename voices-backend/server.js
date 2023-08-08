@@ -3,6 +3,7 @@ const express=require('express')
 const router=require('./routes')
 const database=require('./database')
 const cors=require('cors');
+const cookieParser=require('cookie-parser')
 
 const corsOptions={
     credentials: true, 
@@ -12,8 +13,10 @@ const corsOptions={
 const app=express()
 const PORT=process.env.PORT || 5500
 
-app.use(express.json())
+app.use(express.json({limit: "10mb"}))
 app.use(express.urlencoded())
+app.use('/Storage',express.static('Storage'))
+app.use(cookieParser())
 app.use(cors(corsOptions))
 app.use(router);
 
