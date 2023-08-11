@@ -1,0 +1,90 @@
+
+.roomCardContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap:10px;
+    background-color: var(--primary-background);
+    min-width: 25vw;
+    min-height: 46vh;
+    width: 25vw;
+    height: 46vh;
+    padding: 20px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.roomTopic{
+    font-family: Nunito;
+    color: whitesmoke;
+    font-size: max(1.4vmax,15px);
+}
+
+.speakerNamesList{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.speakerNamesWrapper{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: fit-content;
+    height: fit-content;
+}
+
+.speakers{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    /* background-color: rgb(10, 156, 107); */
+    height: fit-content;
+}
+
+.speakerName{
+    font-family: 'Montserrat', sans-serif;
+    color: var(--highlight-color);
+    font-weight: 500;
+}
+
+.avatar{
+    width: max(36px,3.5vmax);
+    height: max(36px,3.5vmax);
+}
+
+.peopleCountContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    height: fit-content;
+    gap: 5px;
+    padding-right: 10px;
+}
+
+.peopleIcon{
+    width: max(20px,1.5vmax);
+    height: max(20px,1.5vmax);
+    /* border-radius: 50%; */
+}
+
+.chatIcon{
+    width: max(20px,1.5vmax);
+    height: max(20px,1.5vmax);
+    /* border-radius: 50%; */
+}
+
+.peopleCount{
+    font-family: 'Press Start 2P', cursive;
+    color: whitesmoke;
+    font-weight: 500;
+    font-size: max(0.8vmax,10px);
+}

@@ -1,0 +1,28 @@
+.roomTypeContainer{
+    width: 25%;
+    height: fit-content;
+    min-height: 100px;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; 
+    border-radius: 15px;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.roomTypeSelectedContainer{
+    background-color: var(--primary-background);
+}
+
+.roomTypeIcon{
+    width: 60px;
+    height: 60px;
+}
+
+.roomTypeName{
+    font-family: 'Montserrat', sans-serif;
+    font-size: max(1.2vmax,12px);
+    color: whitesmoke;
+}

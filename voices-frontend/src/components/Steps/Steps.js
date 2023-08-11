@@ -171,11 +171,11 @@ export default function Steps({stepsLabel}) {
   }
 
   const stepImgUrl={
-    0: "../../../Images/phoneImg.png",
-    1: "../../../Images/otpImg.png",
-    2: "../../../Images/nameImg.png",
-    3: "../../../Images/avatarImg.png",
-    4: "../../../Images/usernameImg.png",
+    0: "/Images/phoneImg.png",
+    1: "/Images/otpImg.png",
+    2: "/Images/nameImg.png",
+    3: "/Images/avatarImg.png",
+    4: "/Images/usernameImg.png",
   }
 
 

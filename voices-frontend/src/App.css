@@ -13,13 +13,21 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Nunito:wght@700&display=swap');
 :root{
-  --secondary-dark:#141299;
-  --primary-dark: #040430;
-  --primary-light: #AE8FFF ;
-  --secondary-light: #7FFFF5;
-  --ternary-light: #07F1DB;
-}
+    --secondary-dark:#141299;
+    --primary-dark: #040430;
+    --primary-light: #AE8FFF ;
+    --secondary-light: #7FFFF5;
+    --ternary-light: #07F1DB;
+    --quadnary-light: #66B2FF;
+    --highlight-color: #ffb237;
+    --buttons-primary: #0075EA;
+    --buttons-secondary: #007FFF;
+    --success: #20BD5F;
+    --primary-background: rgba(171, 154, 255, 0.2);
+    --secondary-background: rgba(26, 27, 82, 0.977);
+  }
 
 li{
   list-style: none;

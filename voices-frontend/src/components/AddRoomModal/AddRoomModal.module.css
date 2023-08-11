@@ -1,0 +1,142 @@
+.outerModal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.innerModal{
+    z-index: 1;
+    width: 40%;
+    height: 80%;
+    background-color: var(--secondary-background);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: space-eve; */
+    padding: 30px;
+    gap: 10px;
+}
+
+.divider{
+    width: 100%;
+    height: 0.1px;
+    background-color: var(--primary-background);
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.closeButtonContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    height: fit-content;
+}
+
+.startRoomContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: fit-content;
+    gap: 20px;
+}
+
+.startRoomText{
+    font-family: Nunito;
+    font-size: max(1.4vmax,18px);
+    color: whitesmoke;
+    text-align: center;
+    width: 100%;
+}
+
+.startRoomButton{
+    width: max(35%, 150px);
+    background-color: var(--success);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    border-radius: 40px;
+    gap:15px;
+    cursor: pointer;
+}
+
+.startRoomButtonIcon{
+    width: fit-content;
+    height: fit-content;
+}
+
+.startRoomButtonText{
+    font-family: Nunito;
+    font-size: max(1.4vmax,18px);
+    color: whitesmoke;
+    text-align: center;
+}
+
+.closeButton{
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+}
+
+.innerModalHead{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-family: Nunito;
+    font-size: max(1.6vmax,18px);
+    color: whitesmoke;
+    /* padding-left: 20px; */
+}
+
+.innerModalInput{
+    width: 100%;
+    height: max(40px,4vmax);
+    border-radius: 7px;
+    outline: none;
+    border: none;
+    background-color: var(--primary-background);
+    padding-left: 14px;
+    font-size: max(1.4vmax,15px);
+    color: var(--primary-light);
+    font-family: Nunito;
+}
+
+.roomTypeContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.roomTypesList{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: fit-content;
+    /* background-color: aqua; */
+    justify-content: space-evenly;
+    margin: 10px;
+}
+
+
+@media  (max-width: 768px) {
+    .innerModal{
+        width: 80%;
+        height: 80%;
+    }
+}
+    

@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Nunito:wght@700&display=swap');
+:root{
+    --secondary-dark:#141299;
+    --primary-dark: #040430;
+    --primary-light: #AE8FFF ;
+    --secondary-light: #7FFFF5;
+    --ternary-light: #07F1DB;
+    --quadnary-light: #66B2FF;
+    --highlight-color: #ffb237;
+    --buttons-primary: #0075EA;
+    --buttons-secondary: #007FFF;
+    --success: #20BD5F;
+  }
+.roomsContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: fit-content;
+    padding-left: 7vw;
+    padding-right: 7vw;
+    padding-top: 5vmax;
+    gap: max(50px,5vw);
+}
+
+.roomsHeaderTextBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+.headerUnderline{
+    width: 55%;
+    height: 2px;
+    background-color: var(--highlight-color);
+    border-radius: 2px;
+}
+
+.roomsHeader{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.roomsHeaderLeftSection{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: fit-content;
+    gap:max(50px,5vw);
+}
+
+.leftHeaderText{
+    font-family: 'Zen Dots', cursive;
+    color: whitesmoke;
+    font-size: max(1.4vmax,15px);
+}
+
+.roomsSearchBox{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: fit-content;
+    /* border: 1px solid var(--highlight-color); */
+    border-radius: 10px;
+    background-color: var(--primary-background);
+    transition: all 0.2s ease-in-out;
+    padding: 5px;
+    gap: 15px;
+}
+
+.roomsSearchBox:focus-within{
+    box-shadow: 0 0 3px var(--primary-light);
+}
+
+.searchIcon{
+    width: max(16px,1.6vmax);
+    aspect-ratio: 1/1;
+    margin-left: 5px;
+}
+
+.roomsSearchInput{
+    border: none;
+    outline: none;
+    background-color: transparent;
+    width: 22vw;
+    height: max(30px,2.8vmax);
+    color: var(--primary-light);
+    font-size: 1.5vmax;
+    font-family: Nunito;
+}
+
+.createRoomButton{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 7px 10px;
+    border-radius: 10px;
+    background-color: var(--success);
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    opacity: 0.9;
+}
+
+.createRoomButton:hover{
+    opacity: 1;
+}
+
+.createRoomText{
+    font-family: Nunito;
+    color: whitesmoke;
+    font-size: max(1.2vmax,12px);
+}
+
+.roomsListContainer{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(25vw,1fr));
+    width: 100%;
+    justify-content: center;
+    gap: 30px;
+}

@@ -5,7 +5,13 @@ import { useDispatch, useSelector } from 'react-redux'
 import styles from "./Navigation.module.css"
 import { setAuth } from '../../redux/slices/userAuthSlice'
 import {toast} from 'react-toastify'
+import { Avatar, Box } from '@mui/material'
 
+
+const profileLogoStyle={
+  width: "4vmax",
+  height: "4vmax",
+}
 
 export default function Navigation() {
   const dispatch=useDispatch();
@@ -24,9 +30,19 @@ export default function Navigation() {
         <Link to="/">
             <span className={styles.brandName}>Voices</span>
         </Link>
-        {isAuth && <div  className={styles.logoutBtn} onClick={logoutUser}>
-          Logout
-        </div>}
+          {/* {
+            isAuth && <Avatar/>
+          }
+          {isAuth && <div  className={styles.logoutBtn} onClick={logoutUser}>
+            Logout
+            </div>
+          } */}
+        <div className={styles.navbarRightSection}>
+          <Avatar sx={profileLogoStyle}></Avatar>
+          <span className={styles.logoutBtn} onClick={logoutUser}>
+            Logout
+          </span>
+        </div>  
     </nav>
   )
 }

@@ -5,16 +5,33 @@
     align-items: center;
     padding: 2vmax 3vmax;
     position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
 }
 .brandName{
     color: whitesmoke;
     font-family: 'Press Start 2P', cursive;
     font-size: 2vmax;
 }
+
+.navbarRightSection{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: fit-content;
+    height: fit-content;
+    width: fit-content;
+    height: fit-content;
+    gap: max(1.5rem,1.5vw);
+}
+
 .logoutBtn{
     height: fit-content;
     width: fit-content;
-    font-size: 1.8vmax;
+    font-size: 1.5vmax;
     color: whitesmoke;
     /* font-family: 'Press Start 2P', cursive; */
     background: linear-gradient(rgb(0, 162, 255),rgba(0, 162, 255, 0.932),rgba(151, 82, 255, 0.411));
@@ -23,9 +40,7 @@
     padding-top: max(5px,1vmin);
     padding-bottom: max(5px,1vmin);
     border-radius: 1vmax;
-    position: absolute;
     font-weight: 400;
-    right: 5vw;
     font-family: 'Fredoka One', cursive;
     cursor: pointer;
 }
