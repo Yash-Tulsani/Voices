@@ -5,7 +5,6 @@ import styles from './StepBox.module.css'
 
 export default function StepBox({ stepImgUrl, children, handleNext, handleBack, activeStep, stepsLabel }) {
   const termsAndConditions="By entering your number, you’re agreeing to our Terms of Service and Privacy Policy. Thanks!";
-
   return (
     <div className={styles.step}>
       <div className={styles.stepHeadContainer}>

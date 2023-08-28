@@ -28,7 +28,7 @@ class AuthController {
             });
         } catch (err) {
             console.log(err);
-            res.status(500).json({ message: 'message sending failed' });
+            res.status(500).json({ message: 'Error! SMS not sent, Try Again' });
         }
     }
 
@@ -70,13 +70,11 @@ class AuthController {
         res.cookie('refreshToken', refreshToken, {
             maxAge: 1000 * 60 * 60 * 24 * 30,
             httpOnly: true,
-            secure: false
         });
 
         res.cookie('accessToken', accessToken, {
             maxAge: 1000 * 60 * 60 * 24 * 30,
             httpOnly: true,
-            secure: false
         });
 
         const userDto = new UserDto(user);

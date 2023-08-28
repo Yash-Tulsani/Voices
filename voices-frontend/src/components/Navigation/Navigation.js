@@ -23,6 +23,7 @@ export default function Navigation() {
       toast.success("Logged out successfully")
     }catch(err){
       console.log(err.message);
+      toast.error("Error logging out");
     }
   }
   return (
@@ -30,19 +31,15 @@ export default function Navigation() {
         <Link to="/">
             <span className={styles.brandName}>Voices</span>
         </Link>
-          {/* {
-            isAuth && <Avatar/>
-          }
-          {isAuth && <div  className={styles.logoutBtn} onClick={logoutUser}>
-            Logout
-            </div>
-          } */}
-        <div className={styles.navbarRightSection}>
+        {
+          isAuth &&
+          <div className={styles.navbarRightSection}>
           <Avatar sx={profileLogoStyle}></Avatar>
           <span className={styles.logoutBtn} onClick={logoutUser}>
             Logout
           </span>
-        </div>  
+        </div>
+        }  
     </nav>
   )
 }

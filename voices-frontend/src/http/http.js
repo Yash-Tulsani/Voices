@@ -14,6 +14,8 @@ export const sendOtpRequest=(data)=>api.post('/api/send-otp',data);
 export const verifyOtpRequest=(data)=>api.post('/api/verify-otp',data);
 export const sendActivateRequest=(data)=>api.post('/api/activate',data)
 export const logout=()=>api.post('/api/logout');
+export const createRoom=(data)=>api.post('/api/create-room',data);
+export const getRooms=()=>api.get('/api/get-all-rooms');
 
 
 // Interceptors

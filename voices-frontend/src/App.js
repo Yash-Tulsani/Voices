@@ -9,6 +9,7 @@ import Register from './pages/Register/Register';
 import AnimatedBg from './components/AnimatedBg/AnimatedBg';
 import Login from './pages/Login/Login';
 import Rooms from './pages/Rooms/Rooms';
+import Room from './pages/Room/Room';
 import GuestRoute from './components/ProtectedRoutes/GuestRoute';
 import ProtectedRoutes from './components/ProtectedRoutes/ProtectedRoutes';
 import { ToastContainer} from 'react-toastify';
@@ -36,6 +37,7 @@ function App() {
 
         <Route element={<ProtectedRoutes/>}>
           <Route exact path="/rooms" element={<Rooms/>}/>
+          <Route exact path="/rooms/:id" element={<Room/>}/>
         </Route>
       </Routes>
     </BrowserRouter>

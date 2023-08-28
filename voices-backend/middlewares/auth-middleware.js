@@ -7,7 +7,6 @@ module.exports=async function(req,res,next){
             throw new Error();
         }
         const payload=await tokenService.verifyAccessToken(accessToken);
-        // console.log(payload)
         if(!payload){
             throw new Error();
         }

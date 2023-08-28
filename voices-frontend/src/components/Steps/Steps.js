@@ -53,10 +53,10 @@ export default function Steps({stepsLabel}) {
   // Funtions for Steps
   // Send Otp Step functions
   const sendOtp=async()=>{
-    // if(phoneNumber==="" || !phoneNumber){
-    //   toast.error("Phone number cannot be empty.")
-    //   return false;
-    // }
+    if(phoneNumber==="" || !phoneNumber){
+      toast.error("Phone number cannot be empty.")
+      return false;
+    }
     const res=await toast.promise(sendOtpRequest({phone: `${currentCountryCode} ${phoneNumber}`}),{
       pending: "Sending OTP...",
       success: "OTP sent successfully.",
@@ -158,8 +158,12 @@ export default function Steps({stepsLabel}) {
     setActiveStep(0);
   };
 
+  const handleNextOnEnterKeyPress= (e)=>{
+    if(e.key==="Enter"){
+      handleNext();
+    }
+  }
 
-  
  
   const stepsComponents={
     0:<PhoneEmailStep phoneNumber={phoneNumber} setPhoneNumber={setPhoneNumber} currentCountryCode={currentCountryCode} setcurrentCountryCode={setcurrentCountryCode}/>,
@@ -180,7 +184,7 @@ export default function Steps({stepsLabel}) {
 
 
   return (
-    <div className={styles.stepContainer}>
+    <div className={styles.stepContainer} tabIndex={0} onKeyDown={handleNextOnEnterKeyPress}>
     <Box sx={{ width: '80%'}}>
       <Stepper activeStep={activeStep} alternativeLabel>
         {stepsLabel.map((label, index) => {

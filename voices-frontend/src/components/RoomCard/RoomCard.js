@@ -13,7 +13,7 @@ function RoomCard({room}){
                         <AvatarGroup max={3}>
                             {
                             room.speakers.map((speaker,index) => (
-                                <Avatar key={speaker.id} className={styles.avatar} src={speaker.avatar} alt="avatar" />
+                                <Avatar key={speaker.id} style={{zIndex:`${index}`}} className={styles.avatar} src={speaker.avatar} alt="avatar" />
                             ))
                             }
                         </AvatarGroup>

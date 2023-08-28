@@ -1,8 +1,11 @@
 import React from 'react'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './Rooms.module.css';
 import RoomCard from '../../components/RoomCard/RoomCard.js';
 import AddRoomModal from '../../components/AddRoomModal/AddRoomModal';
+import {toast} from 'react-toastify';
+import {getRooms} from '../../http/http.js'
+
 
 // Dummy data, To be replaced with API data
  const rooms = [
@@ -25,7 +28,7 @@ import AddRoomModal from '../../components/AddRoomModal/AddRoomModal';
       },
       {
           id: 3,
-          topic: 'What’s new in machine learning?',
+          topic: 'What\'s new in machine learning?',
           speakers: [
               {
                   id: 1,
@@ -79,7 +82,27 @@ import AddRoomModal from '../../components/AddRoomModal/AddRoomModal';
 
 function Rooms(){
     const [showModal, setShowModal] = useState(false);
+    const [rooms,setRooms]=useState([]);
 
+    // Helper functions
+    const fetchRooms= async ()=>{
+      try{
+        const {data}=await getRooms();
+        setRooms(data);
+        console.log(data);
+      }catch(err){
+        toast.error(err.message);
+        console.log(err.message);
+      }
+    }
+
+    // Side effects
+    useEffect(()=>{
+      fetchRooms();
+      setRooms(rooms);
+    },[])
+
+    // Event Listeners
     const openModal=(e)=>{ 
       setShowModal(true);
     }
@@ -109,7 +132,7 @@ function Rooms(){
               {
                 rooms.map((room,index)=>{
                   return (
-                    <RoomCard key={room.id} room={room}/>
+                    <RoomCard key={room._id} room={room}/>
                   )
                 })
               }
