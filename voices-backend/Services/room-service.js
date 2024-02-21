@@ -12,7 +12,7 @@ class RoomService{
         return room;
     }
     async getAllRooms(types){
-        const rooms=await Room.find({roomType: {$in: types}});
+        const rooms=await Room.find({roomType: {$in: types}}).populate('ownerId').populate('speakers');
         return rooms;
     }
 }

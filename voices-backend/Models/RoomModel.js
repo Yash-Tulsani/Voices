@@ -11,13 +11,14 @@ const roomSchema=new mongoose.Schema({
     },
     ownerId: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Users'
+        ref: 'User',
+        required: true
     },
     speakers:{
         type: [
             {
                 type: mongoose.Schema.Types.ObjectId,
-                ref: 'Users'
+                ref: 'User'
             }
         ],
         required: false

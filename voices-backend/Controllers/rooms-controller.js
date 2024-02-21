@@ -21,7 +21,7 @@ class RoomsController{
     }
 
     async getAllRooms(req,res,next){
-        const rooms=await roomService.getAllRooms(['open']);
+        const rooms=await roomService.getAllRooms(['Open']);
         const roomDtos=rooms.map(room=>new RoomDto(room));
         res.status(200).json(roomDtos);
     }
