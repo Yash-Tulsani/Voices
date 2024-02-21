@@ -2,10 +2,19 @@ import React from 'react';
 import styles from './RoomCard.module.css';
 import Avatar from '@mui/material/Avatar';
 import AvatarGroup from '@mui/material/AvatarGroup';
+import { useNavigate } from 'react-router-dom';
 
 function RoomCard({room}){
+    // Initialization
+    const navigate=useNavigate();
+
+    // Event Listeners
+    const handleRoomClick=(e)=>{
+        navigate(`/room/${room.id}`);
+    }
+
     return (
-        <div className={styles.roomCardContainer}>
+        <div className={styles.roomCardContainer} onClick={handleRoomClick} >
             <div className={styles.roomTopic}>{room.topic}</div>
             <div className={styles.speakers}>
                 <div className={styles.avatars}>

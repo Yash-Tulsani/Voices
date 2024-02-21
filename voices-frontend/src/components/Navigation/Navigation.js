@@ -15,7 +15,7 @@ const profileLogoStyle={
 
 export default function Navigation() {
   const dispatch=useDispatch();
-  const {isAuth}=useSelector((state)=>state.auth);
+  const {isAuth,user}=useSelector((state)=>state.auth);
   async function logoutUser(){
     try{
       const {data}=await logout();
@@ -34,7 +34,7 @@ export default function Navigation() {
         {
           isAuth &&
           <div className={styles.navbarRightSection}>
-          <Avatar sx={profileLogoStyle}></Avatar>
+          <Avatar sx={profileLogoStyle} src={user?.avatar} alt={user?.name}></Avatar>
           <span className={styles.logoutBtn} onClick={logoutUser}>
             Logout
           </span>

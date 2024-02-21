@@ -37,7 +37,7 @@ function App() {
 
         <Route element={<ProtectedRoutes/>}>
           <Route exact path="/rooms" element={<Rooms/>}/>
-          <Route exact path="/rooms/:id" element={<Room/>}/>
+          <Route exact path="/room/:id" element={<Room/>}/>
         </Route>
       </Routes>
     </BrowserRouter>

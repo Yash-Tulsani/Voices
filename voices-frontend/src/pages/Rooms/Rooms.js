@@ -6,80 +6,6 @@ import AddRoomModal from '../../components/AddRoomModal/AddRoomModal';
 import {toast} from 'react-toastify';
 import {getRooms} from '../../http/http.js'
 
-
-// Dummy data, To be replaced with API data
- const rooms = [
-      {
-          id: 1,
-          topic: 'Which framework best for frontend ?',
-          speakers: [
-              {
-                  id: 1,
-                  name: 'John Doe',
-                  avatar: '/Images/otpImg.png',
-              },
-              {
-                  id: 2,
-                  name: 'Jane Doe',
-                  avatar: '/Images/otpImg.png',
-              },
-          ],
-          totalPeople: 40,
-      },
-      {
-          id: 3,
-          topic: 'What\'s new in machine learning?',
-          speakers: [
-              {
-                  id: 1,
-                  name: 'John Doe',
-                  avatar: '/Images/otpImg.png',
-              },
-              {
-                  id: 2,
-                  name: 'Jane Doe',
-                  avatar: '/Images/otpImg.png',
-              },
-          ],
-          totalPeople: 40,
-      },
-      {
-          id: 4,
-          topic: 'Why people use stack overflow?',
-          speakers: [
-              {
-                  id: 1,
-                  name: 'John Doe',
-                  avatar: '/Images/otpImg.png',
-              },
-              {
-                  id: 2,
-                  name: 'Jane Doe',
-                  avatar: '/Images/otpImg.png',
-              },
-          ],
-          totalPeople: 40,
-      },
-      {
-          id: 5,
-          topic: 'Artificial inteligence is the future?',
-          speakers: [
-              {
-                  id: 1,
-                  name: 'John Doe',
-                  avatar: '/Images/otpImg.png',
-              },
-              {
-                  id: 2,
-                  name: 'Jane Doe',
-                  avatar: '/Images/otpImg.png',
-              },
-          ],
-          totalPeople: 40,
-      },
-  ];
-  
-
 function Rooms(){
     const [showModal, setShowModal] = useState(false);
     const [rooms,setRooms]=useState([]);
@@ -99,7 +25,7 @@ function Rooms(){
     // Side effects
     useEffect(()=>{
       fetchRooms();
-      setRooms(rooms);
+      console.log(rooms);
     },[])
 
     // Event Listeners
@@ -132,7 +58,7 @@ function Rooms(){
               {
                 rooms.map((room,index)=>{
                   return (
-                    <RoomCard key={room._id} room={room}/>
+                    <RoomCard key={room.id} room={room}/>
                   )
                 })
               }

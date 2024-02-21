@@ -68,7 +68,8 @@ function AddRoomModal({setShowModal}) {
         }
         try{
             const {data}=await createRoom({topic:roomTopic,roomType:roomTypesData[selectedStates.indexOf(true)].name});
-            navigate(`/room/${data.roomId}`);
+            // navigate(`/room/${data.id}`);
+            console.log(data);
         }catch(err){
             toast.error("Some error occured. Please try again later.");
         }
